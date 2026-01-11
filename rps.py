@@ -9,31 +9,43 @@ class RPS(Enum):
     SCISSORS = 3
 
 
-print("")
-playerchoice = input(
-    "Enter...\n1 for Rock,\n2 for paper, or \n3 for Scissors: \n\n")
+playagain = True
 
-player = int(playerchoice)
+while playagain:
 
-if player < 1 or player > 3:
-    sys.exit("you must enter 1, 2, or 3")
+    playerchoice = input(
+        "\nEnter...\n1 for Rock,\n2 for paper, or \n3 for Scissors: \n\n")
 
-computerchoice = random.choice("123")
+    player = int(playerchoice)
 
-computer = int(computerchoice)
+    if player < 1 or player > 3:
+        sys.exit("you must enter 1, 2, or 3")
 
-print("")
-print("You chose " + str(RPS(player)).replace('RPS.', '') + ".")
-print("Python chose " + str(RPS(computer)).replace('RPS.', '') + ".")
-print("")
+    computerchoice = random.choice("123")
 
-if player == 1 and computer == 3:
-    print("😍 You win! 🥳")
-elif player == 2 and computer == 1:
-    print("😍 You win! 🥳")
-elif player == 3 and computer == 2:
-    print("😍 You win! 🥳")
-elif player == computer:
-    print("🥱 Tie Game! 🥱")
-else:
-    print("😂 Python Win! (*/ω＼*)")
+    computer = int(computerchoice)
+
+    print("\nYou chose " + str(RPS(player)).replace('RPS.', '') + ".")
+    print("Python chose " + str(RPS(computer)).replace('RPS.', '') + ".\n")
+
+    if player == 1 and computer == 3:
+        print("😍 You win! 🥳")
+    elif player == 2 and computer == 1:
+        print("😍 You win! 🥳")
+    elif player == 3 and computer == 2:
+        print("😍 You win! 🥳")
+    elif player == computer:
+        print("🥱 Tie Game! 🥱")
+    else:
+        print("😂 Python Win! (*/ω＼*)")
+
+    playagain = input("\n Play again? \nY for Yes or \nQ for Quit\n\n")
+
+    if playagain.lower() == "y":
+        continue
+    else:
+        print("\n🥳🥳🥳🥳")
+        print("Thank you for playing!\n")
+        playagain = False
+
+sys.exit("Byee! " + "👋")
