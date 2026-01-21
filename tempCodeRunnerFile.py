@@ -1,1 +1,2 @@
-print(len(name))
+
+print(__name__)
